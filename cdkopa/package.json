@@ -1,0 +1,31 @@
+{
+  "name": "cdkopa",
+  "version": "0.1.0",
+  "bin": {
+    "cdkopa": "bin/cdkopa.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "jest",
+    "cdk": "cdk",
+    "bootstrap": "env CDK_NEW_BOOTSTRAP=1 cdk bootstrap --cloudformation-execution-policies arn:aws:iam::aws:policy/AdministratorAccess",
+    "dep": "npm i && go get -u github.com/open-policy-agent/opa",
+    "evaluate-policy": "opa eval --format pretty -i ./cdk.out/CdkopaStack.template.json -d ./cdk-policy.rego \"data\""
+  },
+  "devDependencies": {
+    "@aws-cdk/assert": "1.63.0",
+    "@aws-cdk/aws-ec2": "1.63.0",
+    "@types/jest": "^26.0.10",
+    "@types/node": "10.17.27",
+    "jest": "^26.4.2",
+    "ts-jest": "^26.2.0",
+    "aws-cdk": "1.63.0",
+    "ts-node": "^8.1.0",
+    "typescript": "~3.9.7"
+  },
+  "dependencies": {
+    "@aws-cdk/core": "1.63.0",
+    "source-map-support": "^0.5.16"
+  }
+}
